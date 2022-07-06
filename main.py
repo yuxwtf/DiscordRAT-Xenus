@@ -691,7 +691,7 @@ async def on_ready():
 
 
 try:
-    bot.run("OTkzMTIwNDAxOTgwOTI4MDgx.Gy1nmx.SrJBdasVXMNwispoWhGATS7qdyh5XRgB-9FtNA")
+    bot.run("BOT_TOKEN")
 except:
     os.system('cls')
     print('failed to run program, please update it')
