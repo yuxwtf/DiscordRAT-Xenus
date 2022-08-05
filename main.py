@@ -1,5 +1,4 @@
 import os
-import ascii2text
 
 autostartup = True
 
